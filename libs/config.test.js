@@ -6,10 +6,13 @@ module.exports = {
     dialect: "sqlite",
     storage: "ntask.sqlite",
     logging: false,
+    sync: {
+      force: true
+    },
     define: {
       underscored: true
     }
   },
-  jwtSecret: "Nta$k-AP1",
+  jwtSecret: "NTASK_TEST",
   jwtSession: {session: false}
 };
