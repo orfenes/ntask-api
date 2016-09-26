@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
-    "test": "NODE_ENV=test mocha test/**/*.js"    
+    "start": "npm run apidoc && babel-node index.js",
+    "test": "NODE_ENV=test mocha test/**/*.js",
+    "apidoc": "apidoc -i routes/ -o public/apidoc"
   },
   "author": "Rodrigo Orfenes",
   "dependencies": {
@@ -14,6 +15,7 @@
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "consign": "^0.1.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "jwt-simple": "^0.5.0",
     "passport": "^0.3.2",
