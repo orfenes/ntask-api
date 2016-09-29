@@ -56,7 +56,7 @@ describe("Routes: Token", () => {
             password: "12345"
           })
           .expect(200)
-          .end((err, res) => {
+          .end((err, res) => {            
             expect(res.body).to.include.keys("token");
             done(err);
           });
