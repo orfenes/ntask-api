@@ -2,21 +2,20 @@
 describe("Routes: Token", () => {
   const Users = app.db.models.Users;
 
-  describe("POST /token", () => {
-    
+  describe("POST /token", () => {    
     beforeEach(done => {
       Users
         .destroy({where: {}})
         .then(() => Users.create({
-          name: "Jose",
+          name : "Jose",
           email: "jose@mail.com",
           password: "12345"
         }))
-        .then(done());
+        .then(done());      
     });
 
-    describe("status 200", () => {
-      it("returns authenticated user token", done => {
+    describe("status 200", () =>{
+      it("return authenticated user token", done =>{
         request.post("/token")
           .send({
             email: "jose@mail.com",
@@ -24,12 +23,12 @@ describe("Routes: Token", () => {
           })
           .expect(200)
           .end((err, res) => {
-            console.log('teste aqui', res.body); 
             expect(res.body).to.include.keys("token");
             done(err);
           });
-      });
+      }); 
     });
 
   });
+
 });
