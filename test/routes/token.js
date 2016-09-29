@@ -2,24 +2,26 @@
 describe("Routes: Token", () => {
   const Users = app.db.models.Users;
 
-  describe("POST /token", () => {    
+  describe("POST /token", () => {
+    
     beforeEach(done => {
       Users
         .destroy({where: {}})
         .then(() => Users.create({
-          name : "Jose",
-          email: "jose@mail.com",
-          password: "12345"
+          name : "Rodrigo",
+          email: "rodrigo@mail.net",
+          password: "1234"
         }))
         .then(done());      
     });
+
 
     describe("status 200", () =>{
       it("return authenticated user token", done =>{
         request.post("/token")
           .send({
-            email: "jose@mail.com",
-            password: "12345"
+            email: "rodrigo@mail.net",
+            password: "1234"
           })
           .expect(200)
           .end((err, res) => {
