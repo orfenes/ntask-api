@@ -3,7 +3,7 @@ module.exports = app => {
 
   app.get('/users/:id', (req, res) => {
     Users.findById(req.params.id, {
-      attributes: ["id", "name", "email"]
+      attributes: ['id', 'name', 'email']
     })
       .then(result => res.json(result))
       .catch(error => {
@@ -13,7 +13,7 @@ module.exports = app => {
 
   app.delete('/users/:id', (req, res) => {
     Users.destroy({where: {id: req.params.id} })
-      .the(result => sendStatus(204))
+      .the((result) => sendStatus(204))
       .catch(error => {
         res.status(412).json({msg: error.message});
       });
@@ -25,7 +25,7 @@ module.exports = app => {
     User.create(req.body)
       .then(result => res.json(result))
       .catch(error => {
-        res.status(412).json({msg: eroor.message});
+        res.status(412).json({msg: error.message});
       });
   });
 
