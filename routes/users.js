@@ -3,7 +3,7 @@ module.exports = app => {
 
   app.get("/users/:id", (req, res) => {
     Users.findById(req.params.id, {
-      attributes: ["id", "name", "email", "password"]
+      attributes: ["id", "name", "email"]
     })
       .then(result => res.json(result))
       .catch(error => {
