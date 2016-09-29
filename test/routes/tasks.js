@@ -13,7 +13,7 @@ describe("Routes: Tasks", () => {
   beforeEach(done => {
     Users
       .destroy({where: {}})
-      .then(() => Users.create({
+      .then(() => Users.creates({
         name: "Jose",
         email: "jose@mail.net",
         password: "12345"
